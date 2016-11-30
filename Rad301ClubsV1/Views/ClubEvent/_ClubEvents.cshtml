@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Rad301ClubsV1.Models.ClubModel.ClubEvent>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue)
+        </th> etc
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Venue)
+            </td>
+            <!-- add more lol-->
+        </tr>
+</table>
