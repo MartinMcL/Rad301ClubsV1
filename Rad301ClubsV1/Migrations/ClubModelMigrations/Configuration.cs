@@ -24,7 +24,10 @@ namespace Rad301ClubsV1.Migrations.ClubModelMigrations
                 new Club { ClubName = "The Tiddly Winks Club", CreationDate = DateTime.Now });
             context.Clubs.AddOrUpdate(c => c.ClubName,
                 new Club { ClubName = "The Chess Club", CreationDate = DateTime.Now });
-
+            context.ClubEvents.AddOrUpdate(ce => ce.ClubId,
+                new ClubEvent { ClubId = 1, StartDateTime = DateTime.Now, EndDateTime = Convert.ToDateTime("2016-12-24"), Location = "Sligo", Venue = "Knocknarea" });
+            context.ClubEvents.AddOrUpdate(ce => ce.ClubId,
+               new ClubEvent { ClubId = 1, StartDateTime = DateTime.Now, EndDateTime = Convert.ToDateTime("2016-12-22"), Location = "Donegal", Venue = "Music Hall" });
             Assembly assembly = Assembly.GetExecutingAssembly();
             string resourceName = "Rad301ClubsV1.Migrations.ClubModelMigrations.TestStudents.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))

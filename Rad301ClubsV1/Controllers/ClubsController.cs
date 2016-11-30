@@ -11,7 +11,7 @@ using Rad301ClubsV1.Models.ClubModel;
 
 namespace Rad301ClubsV1.Controllers
 {
-    [Authorize(Roles = "Admin,ClubAdmin")]
+    //[Authorize(Roles = "Admin,ClubAdmin")]
     public class ClubsController : Controller
     {
         private ClubContext db = new ClubContext();
@@ -23,6 +23,15 @@ namespace Rad301ClubsV1.Controllers
                 .Where(c => ClubName == null || c.ClubName.StartsWith(ClubName))
                 .ToListAsync()
                 );
+        }
+        public async Task<ActionResult> AllClubDetails(string ClubName = null)
+        {
+            ViewBag.cname = ClubName;
+            var fullClub = db.Clubs
+                .Include("clubEvents")
+                .Where(c => ClubName == null || c.ClubName.StartsWith(ClubName))
+                .ToListAsync();
+            return View(await fullClub);
         }
 
         // GET: Clubs/Details/5

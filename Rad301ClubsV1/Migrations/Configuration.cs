@@ -70,7 +70,7 @@ namespace Rad301ClubsV1.Migrations
                 manager.AddToRoles(admin.Id, new string[] { "Admin", "Member", "ClubAdmin" });
             }
             else {
-                throw new Exception { Source = "Did not find user" };
+                //throw new Exception { Source = "Did not find user" };
             }
 
             ApplicationUser member = manager.FindByEmail("S12345678@mail.itsligo.ie");

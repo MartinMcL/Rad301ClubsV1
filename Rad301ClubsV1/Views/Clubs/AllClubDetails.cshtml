@@ -1,0 +1,55 @@
+﻿@using Rad301ClubsV1.Models.ClubModel;
+
+@model IEnumerable<Club>
+
+@{
+    ViewBag.Title = "AllClubDetails";
+}
+
+<h2>AllClubDetails</h2>
+@* A form to post back to the same controller a search term *@
+<form method="get">
+    <input type="search" name="ClubName" value="@ViewBag.cName" />
+    <input type="submit" name="Search by Club name" />
+</form>
+@foreach (Club c in Model)
+{
+
+    <h3>
+        @Html.DisplayFor(m => c.ClubName, new { @class = "control-label" })
+    </h3>
+    <table class="table">
+        <tr>
+            <th align="left">
+                Venue
+            </th>
+
+            <th align="left">
+                Location
+            </th>
+            <th align="left">
+                Start Date
+            </th>
+            <th align="left">
+                End Date
+            </th>
+            </tr>
+            @foreach (ClubEvent ce in c.clubEvents)
+            {
+            <tr>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => ce.Venue)
+                </td>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => ce.Location)
+                </td>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => ce.StartDateTime)
+                </td>
+                <td align="left">
+                    @Html.DisplayFor(modelItem => ce.EndDateTime)
+                </td>
+           </tr>
+            }
+</table>
+}

@@ -16,7 +16,7 @@ namespace Rad301ClubsV1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Clubs", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
